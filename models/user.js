@@ -1,59 +1,27 @@
 const mongoose = require('mongoose');
 
-const uuserSchema = mongoose.Schema({
-    name : {
+const UserSchema = mongoose.Schema({
+    userName : {
         required : true,
         trim : true,
         type : String,
-    },
-    email : {
-        required : true,
-        trim : true,
-        type : String,
-        validate : {
-            validator : (value) => {
-                const RE = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-                return value.match(RE);
-            },
-            message : "Please Enter a valid Email",
-        },
-    },
-    phone : {
-        required : true,
-        trim : true,
-        type : String,
-        validate : {
-            validator : (value) => {
-                const RE = /^\d{11}$/;
-                return value.match(RE);
-            },
-            message : "Please Enter a valid Phone Number",
-        },
-    },
-    //TO BE DONE
-    licence : {
-        required : true,
-        trim : true,
-        type : String,
-    },
-    NationalID : {
-        required : true,
-        trim : true,
-        type : String,
-        validate : {
-            validator : (value) => {
-                const RE = /^\d{14}$/;
-                return value.match(RE);
-            },
-            message : "Please Enter a valid National ID",
-        },
-    },
-    Password : {
+    }, 
+    password : {
         required : true,
         type : String,
+        // validate : {
+        //     validator : (value) => {
+        //         return value.length > 8;
+        //     },
+        //     message: 'your password is too short!',
+        // },
+    },
+    type : {
+        type : String,
+        default : 'Driver',
     },
 });
 
-const user = mongoose.model("user" , uuserSchema);
+const User = mongoose.model("User" , UserSchema);
 
-module.exports = user;
+module.exports = User;

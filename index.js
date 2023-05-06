@@ -3,7 +3,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 // Imports From Other Files
-const test = require('./Routes/test');
+const signupRouter = require('./apis/signup');
+const loginRouter = require('./apis/login');
 
 // Init
 const app = express();
@@ -12,7 +13,9 @@ const DB = "mongodb+srv://sayed_4:sayed_4@cluster0.majlbku.mongodb.net/?retryWri
 
 
 // MiddleWare
-app.use(test);
+app.use(express.json());
+app.use(signupRouter);
+app.use(loginRouter);
 
 
 // Connections
@@ -28,5 +31,5 @@ app.get('/first' , (req ,res) =>{
 })
 
 app.listen(PORT,() =>{
-    console.log(`Connected at Porst ${PORT}`);
+    console.log(`Connected at Port ${PORT}`);
 });
