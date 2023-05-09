@@ -3,8 +3,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 // Imports From Other Files
-const signupRouter = require('./apis/signup');
-const loginRouter = require('./apis/login');
+const adminSignupRouter = require('./apis/admin/signup');
+const adminLoginRouter = require('./apis/admin/login');
+const driverLoginRouter = require('./apis/driver/login');
+
 
 // Init
 const app = express();
@@ -14,8 +16,9 @@ const DB = "mongodb+srv://sayed_4:sayed_4@cluster0.majlbku.mongodb.net/?retryWri
 
 // MiddleWare
 app.use(express.json());
-app.use(signupRouter);
-app.use(loginRouter);
+app.use(adminSignupRouter);
+app.use(adminLoginRouter);
+app.use(driverLoginRouter);
 
 
 // Connections

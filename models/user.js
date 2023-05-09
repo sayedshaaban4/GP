@@ -3,12 +3,18 @@ const mongoose = require('mongoose');
 const UserSchema = mongoose.Schema({
     userName : {
         required : true,
-        trim : true,
+        trim : true,   
         type : String,
     },   
     password : {
         required : true,
         type : String,
+        validate : {
+            validator : (value) => {
+                return value.length >= 8;
+            },
+            message: 'your Password is short!',
+        },
     },
     email :{
         required : true,
@@ -16,7 +22,8 @@ const UserSchema = mongoose.Schema({
         type : String,
         validate : {
             validator : (value) => {
-            const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;      
+            const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;    
+            return value.match(re);
             },
             message: 'your Email is invalid!',
         },
@@ -38,7 +45,7 @@ const UserSchema = mongoose.Schema({
         type : String,
 
     },
-    NationalID : {
+    nationalId : {
         required : true,
         trim : true,
         type : String,
@@ -48,6 +55,11 @@ const UserSchema = mongoose.Schema({
             },
             message: 'your National is invalid!',
         },
+    },
+    governorate : {
+        required : true,
+        trim : true,
+        type : String,
     },
     type : {
         type : String,
