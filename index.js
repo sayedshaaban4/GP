@@ -29,8 +29,8 @@ mongoose.connect(DB).then(()=>{
 });
 
 
-app.get('/first' , (req ,res) =>{
-    res.json({first : "Haaaaaaaay"});
+app.get('/' , (req ,res) =>{
+    res.json({first : "Welcome to the first Page :D "});
 })
 
 app.listen(PORT,() =>{
