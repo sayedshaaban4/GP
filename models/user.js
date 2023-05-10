@@ -9,12 +9,6 @@ const UserSchema = mongoose.Schema({
     password : {
         required : true,
         type : String,
-        validate : {
-            validator : (value) => {
-                return value.length >= 8;
-            },
-            message: 'your Password is short!',
-        },
     },
     email :{
         required : true,
@@ -36,7 +30,7 @@ const UserSchema = mongoose.Schema({
             validator : (value) => {
                 return value.length === 11;
             },
-            message: 'your National is invalid!',
+            message: 'your Phone is invalid!',
         },
     },
     licence : {
@@ -53,7 +47,7 @@ const UserSchema = mongoose.Schema({
             validator : (value) => {
                 return value.length === 14;
             },
-            message: 'your National is invalid!',
+            message: 'your National ID is invalid!',
         },
     },
     governorate : {
