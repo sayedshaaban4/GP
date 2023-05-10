@@ -11,7 +11,7 @@ const getAllRouter = require('./apis/admin/getall');
 
 // Init
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const DB = "mongodb+srv://sayed_4:sayed_4@cluster0.majlbku.mongodb.net/?retryWrites=true&w=majority";
 
 
