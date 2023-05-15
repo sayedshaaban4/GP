@@ -7,6 +7,7 @@ const adminSignupRouter = require('./apis/admin/signup');
 const adminLoginRouter = require('./apis/admin/login');
 const driverLoginRouter = require('./apis/driver/login');
 const getAllRouter = require('./apis/admin/getall');
+const driverUpdateRouter = require('./apis/admin/update');
 
 
 // Init
@@ -21,6 +22,7 @@ app.use(adminSignupRouter);
 app.use(adminLoginRouter);
 app.use(driverLoginRouter);
 app.use(getAllRouter);
+app.use(driverUpdateRouter);
 
 
 // Connections
