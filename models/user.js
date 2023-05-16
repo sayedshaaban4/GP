@@ -5,7 +5,7 @@ const UserSchema = mongoose.Schema({
         required : true,
         trim : true,   
         type : String,
-    },   
+    },
     password : {
         required : true,
         type : String,
@@ -37,7 +37,6 @@ const UserSchema = mongoose.Schema({
         required : true,
         trim : true,
         type : String,
-
     },
     nationalId : {
         required : true,
@@ -54,6 +53,18 @@ const UserSchema = mongoose.Schema({
         required : true,
         trim : true,
         type : String,
+    },
+    reportsValue : {
+        type : Number,
+        default : 0,
+    },
+    reportsCount : {
+        type : Number,
+        default : 0,
+    },
+    avgScore : {
+        type : Number,
+        default : 0,
     },
     type : {
         type : String,

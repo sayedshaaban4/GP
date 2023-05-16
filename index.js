@@ -6,8 +6,12 @@ const mongoose = require('mongoose');
 const adminSignupRouter = require('./apis/admin/signup');
 const adminLoginRouter = require('./apis/admin/login');
 const driverLoginRouter = require('./apis/driver/login');
-const getAllRouter = require('./apis/admin/getall');
+const getAllDrivers = require('./apis/admin/getalldrivers');
+const getAllReports = require('./apis/admin/getallreports');
 const driverUpdateRouter = require('./apis/admin/update');
+const addReport = require('./apis/driver/addreport');
+const getData = require('./apis/driver/getdata');
+const updateData = require('./apis/driver/update');
 
 
 // Init
@@ -21,8 +25,12 @@ app.use(express.json());
 app.use(adminSignupRouter);
 app.use(adminLoginRouter);
 app.use(driverLoginRouter);
-app.use(getAllRouter);
+app.use(getAllDrivers);
+app.use(getAllReports);
 app.use(driverUpdateRouter);
+app.use(addReport);
+app.use(getData);
+app.use(updateData);
 
 
 // Connections
