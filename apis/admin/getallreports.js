@@ -13,7 +13,7 @@ getAllReports.get('/api/admin/getallreports' , token , async (req , res) => {
         const result = await Report.find({},{_id : 0 , __v : 0});
         res.json({result});
     } catch (e) {
-        res.status(500).json({error: e.message});
+        res.status(500).json({error: e.message}) ;
     }
 });
 

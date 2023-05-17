@@ -3,12 +3,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 // Imports From Other Files
+    // Admin
 const adminSignupRouter = require('./apis/admin/signup');
 const adminLoginRouter = require('./apis/admin/login');
-const driverLoginRouter = require('./apis/driver/login');
 const getAllDrivers = require('./apis/admin/getalldrivers');
 const getAllReports = require('./apis/admin/getallreports');
-const driverUpdateRouter = require('./apis/admin/update');
+    // Driver
+const driverLoginRouter = require('./apis/driver/login');
 const addReport = require('./apis/driver/addreport');
 const getData = require('./apis/driver/getdata');
 const updateData = require('./apis/driver/update');
@@ -22,12 +23,13 @@ const DB = "mongodb+srv://sayed_4:sayed_4@cluster0.majlbku.mongodb.net/?retryWri
 
 // MiddleWare
 app.use(express.json());
+    // Admin
 app.use(adminSignupRouter);
 app.use(adminLoginRouter);
-app.use(driverLoginRouter);
 app.use(getAllDrivers);
 app.use(getAllReports);
-app.use(driverUpdateRouter);
+    // Driver
+app.use(driverLoginRouter);
 app.use(addReport);
 app.use(getData);
 app.use(updateData);
