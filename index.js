@@ -8,12 +8,13 @@ const adminSignupRouter = require('./apis/admin/signup');
 const adminLoginRouter = require('./apis/admin/login');
 const getAllDrivers = require('./apis/admin/getalldrivers');
 const getAllReports = require('./apis/admin/getallreports');
+
     // Driver
 const driverLoginRouter = require('./apis/driver/login');
 const addReport = require('./apis/driver/addreport');
 const getData = require('./apis/driver/getdata');
 const updateData = require('./apis/driver/update');
-
+const getmyreports = require('./apis/driver/getmyreports');
 
 // Init
 const app = express();
@@ -33,6 +34,7 @@ app.use(driverLoginRouter);
 app.use(addReport);
 app.use(getData);
 app.use(updateData);
+app.use(getmyreports);
 
 
 // Connections
