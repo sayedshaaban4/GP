@@ -8,6 +8,11 @@ adminSignupRouter.post('/api/admin/signup' , async (req , res) => {
     try{
         const {userName , password , email , phone , licence , nationalId , governorate , type} = req.body;
 
+        const existingUser0 = await User.findOne({userName});
+        if(existingUser0){
+            return res.status(400).json({msg : 'User with this Name Already exist!'});
+        }
+        
         const existingUser1 = await User.findOne({email});
         if(existingUser1){
             return res.status(400).json({msg : 'User with this Email Already exist!'});
