@@ -4,11 +4,10 @@ const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const adminLoginRouter = express.Router();
 
-adminLoginRouter.get('/api/admin/login' , async (req , res) => {
+adminLoginRouter.post('/api/admin/login' , async (req , res) => {
 
     try{
         const {userName , password} = req.body;
-
 
         const user = await User.findOne({userName});
 

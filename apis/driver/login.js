@@ -4,7 +4,7 @@ const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const driverLoginRouter = express.Router();
 
-driverLoginRouter.get('/api/driver/login' , async (req , res) => {
+driverLoginRouter.post('/api/driver/login' , async (req , res) => {
 
     try{
         const {userName , password} = req.body;
