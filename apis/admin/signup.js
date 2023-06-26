@@ -35,9 +35,8 @@ adminSignupRouter.post('/api/admin/signup' , async (req , res) => {
             governorate,
             type,
         });
-
         user = await user.save();
-        res.json({user});
+        res.json({msg : 'Added Succesfully'});
     } catch (e) {
         res.status(500).json({error: e.message});
     }
