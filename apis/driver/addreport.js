@@ -17,7 +17,7 @@ const addReport = express.Router();
 
 addReport.post('/api/driver/addreport' , async (req , res) => {
     try{
-        const {userName  , phone , licence , model_1 , model_2 , model_3 , total} = req.body;
+        const {userName  , phone , licence , model_1 , model_2 , model_3 , total , source , destination} = req.body;
         const checkUser1 = await User.findOne({userName});
         const checkUser2 = await User.findOne({phone});
         const checkUser3 = await User.findOne({licence});
@@ -55,7 +55,9 @@ addReport.post('/api/driver/addreport' , async (req , res) => {
             model_3,
             total,
             date,
-            time
+            time,
+            source,
+            destination
         });
 
         const user = await User.findOne({userName});
