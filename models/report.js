@@ -45,6 +45,14 @@ const ReportSchema = mongoose.Schema({
         required: true,
         type: String,
     },
+    source : {
+        required : true,
+        type : String,
+    },
+    destination : {
+        required : true,
+        type : String,
+    },
 });
 
 const Report = mongoose.model("Report", ReportSchema);
