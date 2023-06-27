@@ -6,7 +6,7 @@ const updateData = express.Router();
 
 updateData.post('/api/driver/update' , async (req , res) => {
     try{
-        const {userName , password , email , phone , licence , nationalId , governorate , avgScore} = req.body;
+        const {userName , password , email , phone , governorate} = req.body;
         
         const existingUser1 = await User.findOne({email});
         if(existingUser1 && existingUser1.userName!=userName){
@@ -37,8 +37,6 @@ updateData.post('/api/driver/update' , async (req , res) => {
         await Report.findOneAndUpdate({userName} , {phone : phone}).clone();
 
         res.status(200).json({msg : 'updated success'});
-        // const user = await User.findOne({userName});
-        // res.json({user});
 
     } catch (e) {
         res.status(500).json({error: e.message});
