@@ -1,60 +1,69 @@
 const mongoose = require("mongoose");
-const User = require("./user");
-const { Timestamp } = require("mongodb");
 
 const ReportSchema = mongoose.Schema({
-    id: {
+    id : {
         type: Number,
     },
-    userName: {
+
+    userName : {
         required: true,
         trim: true,
         type: String,
     },
-    phone: {
+
+    phone : {
         required: true,
         trim: true,
         type: String,
     },
-    licence: {
+
+    licence : {
         required: true,
         trim: true,
         type: String,
     },
-    model_1: {
+    /// TODO write all classes persentage to be shown 
+    model_1 : {
         required: true,
         type: Number,
     },
-    model_2: {
+
+    model_2 : {
         required: true,
         type: Number,
     },
-    model_3: {
+
+    model_3 : {
         required: true,
         type: Number,
     },
-    total: {
+
+    total : {
         required: true,
         type: Number,
     },
-    date: {
+
+    date : {
         required: true,
         type: String,
     },
-    time: {
+
+    time : {
         required: true,
         type: String,
     },
-    source: {
+
+    source : {
         required: true,
         type: String,
     },
-    destination: {
+
+    destination : {
         required: true,
         type: String,
     },
+
 });
 
 const Report = mongoose.model("Report", ReportSchema);
-
 module.exports = Report;

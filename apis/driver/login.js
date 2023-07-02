@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken');
 const driverLoginRouter = express.Router();
 
 driverLoginRouter.post('/api/driver/login' , async (req , res) => {
-
     try{
         const {userName , password} = req.body;
 
@@ -15,9 +14,9 @@ driverLoginRouter.post('/api/driver/login' , async (req , res) => {
             return res.status(400).json({msg : 'Wrong userName'});
         }
 
-        const isMatch = await bcryptjs.compare(password , user.password);
+        const isMatchPassword = await bcryptjs.compare(password , user.password);
 
-        if(!isMatch){
+        if(!isMatchPassword){
             return res.status(400).json({msg : 'Incorrect Password'});
         }
 
@@ -29,9 +28,8 @@ driverLoginRouter.post('/api/driver/login' , async (req , res) => {
         res.json({token , ...user._doc});
 
     } catch (e) {
-        res.status(500).json({error: e.message});
+        res.status(500).json({error: e});
     }
-    
 });
 
 module.exports = driverLoginRouter;

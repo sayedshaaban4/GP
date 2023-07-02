@@ -2,21 +2,21 @@ const express = require('express');
 const Report = require('../../models/report');
 const User = require('../../models/user');
 const token = require('../middlewares/token');
-const getMyReports = express.Router();
+const myReportsRouter = express.Router();
 
-getMyReports.get('/api/driver/getmyreports' , token , async (req , res) => {
+myReportsRouter.get('/api/driver/my-reports' , token , async (req , res) => {
     try{
         const user = await User.findById(req.user);
-        if(user.type !== 'Driver'){
+        if(user.type === 'Admin'){
             return res.status(400).json({msg : 'Invalid Access'});
         }
 
         const userName = user.userName;
-        const result = await Report.find({userName},{_id : 0 , __v : 0});
-        res.json({result});
+        const reports = await Report.find({userName} , {_id : 0 , __v : 0});
+        res.json({reports});
     } catch (e) {
-        res.status(500).json({error: e.message}) ;
+        res.status(500).json({error: e}) ;
     }
 });
 
-module.exports = getMyReports;
+module.exports = myReportsRouter;

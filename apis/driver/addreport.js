@@ -2,7 +2,7 @@ const express = require('express');
 const User = require('../../models/user');
 const Report = require('../../models/report');
 const token = require('../middlewares/token');
-const addReport = express.Router();
+const tripReportRouter = express.Router();
 
 // hayb2a mab3oot ntayg l 3 models fl request w kman user data , l mafrood
 // addreport.post('/api/driver/addreport',token , async (req , res) => {
@@ -15,7 +15,7 @@ const addReport = express.Router();
 // });
 
 
-addReport.post('/api/driver/addreport' , async (req , res) => {
+tripReportRouter.post('/api/driver/trip-report' , async (req , res) => {
     try{
         const {userName  , phone , licence , model_1 , model_2 , model_3 , total , source , destination} = req.body;
         const checkUser1 = await User.findOne({userName});
@@ -73,4 +73,4 @@ addReport.post('/api/driver/addreport' , async (req , res) => {
     }
 });
 
-module.exports = addReport;
+module.exports = tripReportRouter;

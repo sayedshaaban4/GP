@@ -6,11 +6,19 @@ const UserSchema = mongoose.Schema({
         trim : true,   
         type : String,
     },
+
     password : {
         required : true,
         type : String,
+        validate : {
+            validator : (value) => {
+                return value.length === 0;
+            },
+            message: 'The Password length should be greater than zero',
+        },
     },
-    email :{
+
+    email : {
         required : true,
         trim : true,
         type : String,
@@ -22,7 +30,8 @@ const UserSchema = mongoose.Schema({
             message: 'your Email is invalid!',
         },
     },
-    phone: {
+
+    phone : {
         required : true,
         trim : true,
         type : String,
@@ -33,11 +42,13 @@ const UserSchema = mongoose.Schema({
             message: 'your Phone is invalid!',
         },
     },
+
     licence : {
         required : true,
         trim : true,
         type : String,
     },
+
     nationalId : {
         required : true,
         trim : true,
@@ -49,23 +60,28 @@ const UserSchema = mongoose.Schema({
             message: 'your National ID is invalid!',
         },
     },
+
     governorate : {
         required : true,
         trim : true,
         type : String,
     },
+
     reportsValue : {
         type : Number,
         default : 0,
     },
+
     reportsCount : {
         type : Number,
         default : 0,
     },
+
     avgScore : {
         type : Number,
         default : 0,
     },
+
     type : {
         type : String,
         default : 'Driver',
@@ -73,5 +89,4 @@ const UserSchema = mongoose.Schema({
 });
 
 const User = mongoose.model("User" , UserSchema);
-
 module.exports = User;
