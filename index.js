@@ -11,7 +11,7 @@ const allReportsRouter = require('./apis/admin/allReports');
 
     // Driver
 const driverLoginRouter = require('./apis/driver/login');
-const tripReportRouter = require('./apis/driver/addreport');
+const tripReportRouter = require('./apis/driver/reportReport');
 const myProfileRouter = require('./apis/driver/myProfile');
 const updateInfoRouter = require('./apis/driver/updateInfo');
 const myReportsRouter = require('./apis/driver/myreports');
