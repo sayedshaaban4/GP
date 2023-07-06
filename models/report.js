@@ -23,10 +23,12 @@ const ReportSchema = mongoose.Schema({
         type: String,
     },
     drowsinessRate : {
+        required: true,
         type: Number,
     },
 
     distructionRate : {
+        required: true,
         type: Number,
     },
 
