@@ -10,7 +10,7 @@ allReportsRouter.get('/api/admin/all-reports' , token , async (req , res) => {
         if(user.type === 'Driver'){
             return res.status(400).json({msg : 'Invalid Access'});
         }
-        const reports = await Report.find({} , {_id : 0 , __v : 0});
+        const reports = await Report.find({} , {_id : 0 , __v : 0 , total : 0});
         res.json({reports});
     } catch (e) {
         res.status(500).json({error: e}) ;
