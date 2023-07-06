@@ -16,8 +16,7 @@ tripReportRouter.post('/api/driver/trip-report' ,token , async (req , res) => {
         const userName = user.userName
         const phone = user.phone
         const licence = user.licence
-        const sum = (((200.0 - (distructionRate + drowsinessRate)) / 200.0 ) * 100.0)
-        const total = user.total + sum
+        const total = (((200.0 - (distructionRate + drowsinessRate)) / 200.0 ) * 100.0)
         
         const cnt = await Report.count();
         

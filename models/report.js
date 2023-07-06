@@ -33,8 +33,8 @@ const ReportSchema = mongoose.Schema({
     },
 
     total : {
-        required: true,
         type: Number,
+        default : 0,
     },
 
     date : {
