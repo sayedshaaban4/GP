@@ -12,7 +12,7 @@ const UserSchema = mongoose.Schema({
         type : String,
         validate : {
             validator : (value) => {
-                return value.length === 0;
+                return value.length !== 0;
             },
             message: 'The Password length should be greater than zero',
         },
@@ -49,7 +49,7 @@ const UserSchema = mongoose.Schema({
         type : String,
         validate : {
             validator : (value) => {
-                return value.length === 1;
+                return value.length === 1 && (value==="A" || value==="B" || value==="C" || value==="D" || value==="E");
             },
             message: 'your licence is invalid!',
         },
