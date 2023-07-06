@@ -12,7 +12,7 @@ myReportsRouter.get('/api/driver/my-reports' , token , async (req , res) => {
         }
 
         const userName = user.userName;
-        const reports = await Report.find({userName} , {_id : 0 , __v : 0 , total : 0});
+        const reports = await Report.find({userName} , {_id : 0 , __v : 0});
         res.json({reports});
     } catch (e) {
         res.status(500).json({error: e}) ;
