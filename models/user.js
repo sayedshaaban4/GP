@@ -47,6 +47,12 @@ const UserSchema = mongoose.Schema({
         required : true,
         trim : true,
         type : String,
+        validate : {
+            validator : (value) => {
+                return value.length === 1 && (value==="A" || value==="B" || value==="C" || value==="D" || value==="E");
+            },
+            message: 'your licence is invalid!',
+        },
     },
 
     nationalId : {

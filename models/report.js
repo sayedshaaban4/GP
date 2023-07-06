@@ -22,19 +22,11 @@ const ReportSchema = mongoose.Schema({
         trim: true,
         type: String,
     },
-    /// TODO write all classes persentage to be shown 
-    model_1 : {
-        required: true,
+    drowsinessRate : {
         type: Number,
     },
 
-    model_2 : {
-        required: true,
-        type: Number,
-    },
-
-    model_3 : {
-        required: true,
+    distructionRate : {
         type: Number,
     },
 
