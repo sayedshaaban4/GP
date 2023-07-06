@@ -9,7 +9,7 @@ updateInfoRouter.post('/api/driver/update-info' , async (req , res) => {
         const {userName , password , email , phone , governorate} = req.body;
         
         const driverWithSameEmail = await User.findOne({email});
-        if(driverWithSameEmail && driverWithSameEmail.email !== email){
+        if(driverWithSameEmail && driverWithSameEmail.userName !== userName){
             return res.status(400).json({msg : 'Driver with this Email Already exist!'});
         }
 
@@ -19,7 +19,7 @@ updateInfoRouter.post('/api/driver/update-info' , async (req , res) => {
         }
 
         const driverWithSamePhone = await User.findOne({phone});
-        if(driverWithSamePhone && driverWithSamePhone.phone !== phone){
+        if(driverWithSamePhone && driverWithSamePhone.userName !== userName){
             return res.status(400).json({msg : 'Driver with this Phone Already exist!'});
         }
 
