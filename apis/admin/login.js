@@ -28,7 +28,7 @@ adminLoginRouter.post('/api/admin/login' , async (req , res) => {
         res.json({token , ...user._doc});
 
     } catch (e) {
-        res.status(500).json({error: e});
+        res.status(500).json({msg: e.message});
     }
 });
 

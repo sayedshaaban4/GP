@@ -13,7 +13,7 @@ allReportsRouter.get('/api/admin/all-reports' , token , async (req , res) => {
         const reports = await Report.find({} , {_id : 0 , __v : 0});
         res.json({reports});
     } catch (e) {
-        res.status(500).json({error: e}) ;
+        res.status(500).json({msg: e.message}) ;
     }
 });
 

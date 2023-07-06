@@ -13,7 +13,7 @@ allDriversRouter.get('/api/admin/all-drivers' , token , async (req , res) => {
                                         {_id : 0 , password : 0 , type : 0 , __v : 0 , reportsValue : 0 , reportsCount : 0});
         res.json({drivers});
     } catch (e) {
-        res.status(500).json({error: e});
+        res.status(500).json({msg: e.message});
     }
 });
 

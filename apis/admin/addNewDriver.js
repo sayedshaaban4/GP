@@ -43,7 +43,7 @@ addNewDriverRouter.post('/api/admin/add-new-driver' , async (req , res) => {
         user = await user.save();
         res.json({msg : 'Added Succesfully'});
     } catch (e) {
-        res.status(500).json({error: e});
+        res.status(500).json({msg: e.message});
     }
 });
 

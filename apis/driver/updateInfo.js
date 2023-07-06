@@ -37,7 +37,7 @@ updateInfoRouter.post('/api/driver/update-info' , async (req , res) => {
 
         res.status(200).json({msg : 'updated successfully'});
     } catch (e) {
-        res.status(500).json({error: e});
+        res.status(500).json({msg:e.message});
     }
 });
 
