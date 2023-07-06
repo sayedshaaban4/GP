@@ -49,7 +49,7 @@ const UserSchema = mongoose.Schema({
         type : String,
         validate : {
             validator : (value) => {
-                return value.length === 1 && (value==="A" || value==="B" || value==="C" || value==="D" || value==="E");
+                return value.length === 1;
             },
             message: 'your licence is invalid!',
         },
