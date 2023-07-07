@@ -11,11 +11,9 @@ tripReportRouter.post('/api/driver/trip-report' ,token , async (req , res) => {
 
         const user = await User.findById(req.user);
 
-        const {drowsinessRate  , distructionRate , source , destination , date , time} = req.body;
+        const {drowsinessRate  , distructionRate , calling , texting , drinking , reachingBehind , source , destination , date , time} = req.body;
         
         const userName = user.userName
-        const phone = user.phone
-        const licence = user.licence
         const total = (((200.0 - (distructionRate + drowsinessRate)) / 200.0 ) * 100.0)
         
         const cnt = await Report.count();
@@ -23,10 +21,12 @@ tripReportRouter.post('/api/driver/trip-report' ,token , async (req , res) => {
         let report = new Report({
             id : cnt+1,
             userName : userName,
-            phone : phone,
-            licence : licence,
             drowsinessRate : drowsinessRate,
             distructionRate : distructionRate,
+            calling : calling,
+            texting : texting,
+            drinking : drinking,
+            reachingBehind : reachingBehind,
             total : total,
             date : date,
             time : time,

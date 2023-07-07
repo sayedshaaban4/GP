@@ -11,17 +11,6 @@ const ReportSchema = mongoose.Schema({
         type: String,
     },
 
-    phone : {
-        required: true,
-        trim: true,
-        type: String,
-    },
-
-    licence : {
-        required: true,
-        trim: true,
-        type: String,
-    },
     drowsinessRate : {
         required: true,
         type: Number,
@@ -32,11 +21,31 @@ const ReportSchema = mongoose.Schema({
         type: Number,
     },
 
+    calling : {
+        required: true,
+        type: Number,
+    },
+
+    texting : {
+        required: true,
+        type: Number,
+    },
+
+    drinking : {
+        required: true,
+        type: Number,
+    },
+
+    reachingBehind : {
+        required: true,
+        type: Number,
+    },
+
     total : {
         type: Number,
         default : 0,
     },
-
+    
     date : {
         required: true,
         type: String,
