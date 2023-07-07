@@ -11,7 +11,7 @@ tripReportRouter.post('/api/driver/trip-report' ,token , async (req , res) => {
 
         const user = await User.findById(req.user);
 
-        const {drowsinessRate  , distructionRate , calling , texting , drinking , reachingBehind , source , destination , date , time} = req.body;
+        const {drowsinessRate  , distructionRate , calling , texting , drinking , reachingBehind , source , destination , date , time , deuration} = req.body;
         
         const userName = user.userName
         const total = (((200.0 - (distructionRate + drowsinessRate)) / 200.0 ) * 100.0)
@@ -32,6 +32,7 @@ tripReportRouter.post('/api/driver/trip-report' ,token , async (req , res) => {
             time : time,
             source : source,
             destination : destination,
+            deuration : deuration,
         });
 
         await User.findOneAndUpdate({userName} , {reportsValue : user.reportsValue+total}).clone();

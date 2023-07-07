@@ -65,7 +65,10 @@ const ReportSchema = mongoose.Schema({
         required: true,
         type: String,
     },
-
+    deuration : {
+        required: true,
+        type : Number,
+    },
 });
 
 const Report = mongoose.model("Report", ReportSchema);
