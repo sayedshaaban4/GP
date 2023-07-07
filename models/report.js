@@ -16,7 +16,7 @@ const ReportSchema = mongoose.Schema({
         type: Number,
     },
 
-    distructionRate : {
+    distractionRate : {
         required: true,
         type: Number,
     },
@@ -65,7 +65,7 @@ const ReportSchema = mongoose.Schema({
         required: true,
         type: String,
     },
-    deuration : {
+    duration : {
         required: true,
         type : Number,
     },

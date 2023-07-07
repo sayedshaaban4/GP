@@ -22,7 +22,7 @@ tripReportRouter.post('/api/driver/trip-report' ,token , async (req , res) => {
             id : cnt+1,
             userName : userName,
             drowsinessRate : drowsinessRate,
-            distructionRate : distructionRate,
+            distractionRate : distractionRate,
             calling : calling,
             texting : texting,
             drinking : drinking,
@@ -32,7 +32,7 @@ tripReportRouter.post('/api/driver/trip-report' ,token , async (req , res) => {
             time : time,
             source : source,
             destination : destination,
-            deuration : deuration,
+            duration : duration,
         });
 
         await User.findOneAndUpdate({userName} , {reportsValue : user.reportsValue+total}).clone();
